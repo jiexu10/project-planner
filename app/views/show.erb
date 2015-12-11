@@ -1,0 +1,40 @@
+<h2>Project Show Page</h2>
+<br>
+<%= "Name: #{@project.name}" %>
+<br>
+<%= "Description: #{@project.description}" if @project.description %>
+
+<% if @project.users.any? %>
+  <hr>
+  List of Members
+  <ul class="member-list">
+    <% @project.users.each do |user| %>
+      <li>
+        <%= user.first_name %> <%= user.last_name %>
+        <%= user.email if user.email %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<% if @project.tasks.any? %>
+  <hr>
+  List of Tasks
+  <ul class="task-list">
+    <% @project.tasks.each do |task| %>
+      <li>
+        <%= task.name %>
+        <% if task.description %>
+          - Description: <%= task.description %>
+        <% end %>
+        <% if task.due_date %>
+          - Due Date: <%= task.due_date %>
+        <% end %>
+        <% if task.user %>
+          || Assigned to: <%= task.user.first_name %> <%= task.user.last_name %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
