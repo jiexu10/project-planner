@@ -5,6 +5,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra-flash'
+gem 'puma'
 
 group :development, :test do
   gem 'capybara'
