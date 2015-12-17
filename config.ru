@@ -1,4 +1,4 @@
-require './server'
+require './app'
 
 # disable buffering for Heroku Logplex
 $stdout.sync = true
